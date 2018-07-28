@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+</head>
+
+<body>
+<select id="sel1" onchange="giveSelection(this.value)">
+  <option value="a">a</option>
+  <option value="b">b</option>
+</select>
+<select id="sel2">
+  <option data-option="a">apple</option>
+  <option data-option="a">airplane</option>
+  <option data-option="b">banana</option>
+  <option data-option="b">book</option>
+</select>
+<script type="text/javascript" >
+var sel1 = document.getElementById('sel1');
+var sel2 = document.getElementById('sel2');
+var options2 = sel2.querySelectorAll('option');
+
+function giveSelection(selValue) {
+  sel2.innerHTML = '';
+  for(var i = 0; i < options2.length; i++) {
+    if(options2[i].dataset.option === selValue) {
+      sel2.appendChild(options2[i]);
+    }
+  }
+}
+giveSelection(sel1.value);</script>
+</body>
+
+</html>
